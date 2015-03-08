@@ -32,7 +32,7 @@ gulp.task('compile-static', function compileStatic() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('pushGithub', function pushGithub() {
+gulp.task('push-gh-pages', function pushGithubPages() {
   return gulp.src('dist/**/*')
     .pipe(ghPages());
 });
@@ -49,6 +49,6 @@ gulp.task('build', function build(cb) {
 gulp.task('deploy', function deploy(cb) {
   sequence.apply(null, [
     'build',
-    'push'
+    'push-gh-pages'
   ].concat(cb));
 });
